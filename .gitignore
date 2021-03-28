@@ -1,0 +1,6 @@
+// Folders
+node_modules/
+
+// Local Environment
+.env
+.env.local

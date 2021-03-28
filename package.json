@@ -1,0 +1,29 @@
+{
+  "name": "syllektis-server",
+  "version": "0.0.1",
+  "description": "This project was started to create a way for recyclable waste collectors to earn what they should from their collections. This server will make available features such as backups, accounts, etc.",
+  "main": "server.js",
+  "repository": "https://github.com/connor-davis/syllektis-server",
+  "author": "Connor Davis <19422@kloofhigh.co.za>",
+  "license": "GPL-3.0",
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "consola": "^2.15.3",
+    "cors": "^2.8.5",
+    "couchdb": "^0.3.8",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "pouchdb": "^7.2.2",
+    "socket.io": "^4.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
+  }
+}
