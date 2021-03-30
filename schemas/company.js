@@ -1,39 +1,9 @@
 let mongoose = require('mongoose')
+let CompanyCollectionsSchema = require('./collection')
+let CompanyCollectorsSchema = require('./collector')
+let CompanyPaymentsSchema = require('./payment')
+let CompanyProductsSchema = require('./product')
 let { Schema } = mongoose
-
-let CompanyPaymentsSchema = new Schema({
-    // Company Payment Data
-    paymentId: String,
-    paymentDate: Date,
-    paymentAmount: Number,
-    // Company Collector Data
-    collectorId: String,
-    // Company Data
-    companyId: String,
-})
-
-let CompanyCollectionsSchema = new Schema({
-    // Company Collection Data
-    collectionId: String,
-    collectionDescription: String,
-    collectionDate: Date,
-    collectionMass: Number,
-    // Company Collector Data
-    collectorId: String,
-    collectorEarnings: Number,
-    // Company Data
-    companyId: String,
-})
-
-let CompanyCollectorsSchema = new Schema({
-    // TODO: Company Collector Data
-    // TODO: Company Data
-})
-
-let CompanyProductsSchema = new Schema({
-    // TODO: Company Product Data
-    // TODO: Company Data
-})
 
 let CompanySchema = new Schema({
     // Company Data
