@@ -9,7 +9,7 @@ let http = require('http').createServer(app)
 let { json, urlencoded } = require('body-parser')
 let passport = require('passport')
 let { info } = require('./utils/console')
-let { _JwtStrategy } = require('./strategies/jwt')
+let { JwtStrategy } = require('./strategies/jwt')
 let { connect } = require('./utils/database')
 
 let port = 8080 || process.env.PORT
@@ -23,7 +23,7 @@ let Routes = require('./routes')
     app.use(passport.initialize())
     app.use(passport.session())
 
-    passport.use(_JwtStrategy)
+    passport.use(JwtStrategy)
 
     app.use('/api', Routes)
 
