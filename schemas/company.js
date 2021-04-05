@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
-let CompanyCollectionsSchema = require('./collection')
+let { CompanyCollectionsSchema } = require('./collection')
 let CompanyCollectorsSchema = require('./collector')
-let CompanyPaymentsSchema = require('./payment')
+let { CompanyPaymentsSchema } = require('./payment')
 let CompanyProductsSchema = require('./product')
 let { Schema } = mongoose
 

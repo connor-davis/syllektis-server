@@ -2,8 +2,13 @@ let mongoose = require('mongoose')
 let { Schema } = mongoose
 
 let CompanyProductsSchema = new Schema({
-    // TODO: Company Product Data
-    // TODO: Company Data
+    // Company Product Data
+    productId: String,
+    productDescription: String,
+    productMaterial: String,
+    productValue: Number,
+    // Company Data
+    companyId: String,
 })
 
 module.exports = CompanyProductsSchema

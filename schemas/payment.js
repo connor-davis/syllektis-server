@@ -12,4 +12,13 @@ let CompanyPaymentsSchema = new Schema({
     companyId: String,
 })
 
-module.exports = CompanyPaymentsSchema
+let CollectorPaymentsSchema = new Schema({
+    // Company Payment Data
+    paymentId: String,
+    paymentDate: Date,
+    paymentAmount: Number,
+    // Company Collector Data
+    collectorId: String,
+})
+
+module.exports = { CompanyPaymentsSchema, CollectorPaymentsSchema }
