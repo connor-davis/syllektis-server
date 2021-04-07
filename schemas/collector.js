@@ -1,13 +1,12 @@
 let mongoose = require('mongoose')
+const { CompanySchema } = require('.')
 let { Schema } = mongoose
 
-let { CollectorCollectionsSchema } = require('./collection')
-let { CollectorPaymentsSchema } = require('./payment')
-
-let CompanyCollectorsSchema = new Schema({
+let CompanyCollectorSchema = new Schema({
     // Company Collector Data
     collectorId: String,
-    collectorFullName: String,
+    collectorFirstName: String,
+    collectorLastName: String,
     collectorPhoneNumber: Number,
     collectorIdNumber: Number,
     collectorEmail: String,
@@ -21,17 +20,23 @@ let CompanyCollectorsSchema = new Schema({
     collectorProvince: String,
     collectorCountry: String,
     // Collector Payments Data
+    // Where [String] contains Id's
     collectorPayments: {
-        type: [CollectorPaymentsSchema],
+        type: [String],
         default: [],
     },
     // Collector Payments Data
+    // Where [String] contains Id's
     collectorCollections: {
-        type: [CollectorCollectionsSchema],
+        type: [String],
         default: [],
     },
     // Company Data
-    companyId: String,
+    // Where [String] contains Id's
+    collectorCompanies: {
+        type: [String],
+        default: [],
+    },
 })
 
-module.exports = CompanyCollectorsSchema
+module.exports = CompanyCollectorSchema

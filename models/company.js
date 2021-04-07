@@ -1,5 +1,5 @@
 let mongoose = require('mongoose')
-let CompanySchema = require('../schemas/company')
+const { CompanySchema } = require('../schemas')
 
 let Company = mongoose.model('Company', CompanySchema)
 

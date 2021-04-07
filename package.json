@@ -9,23 +9,29 @@
     "private": false,
     "scripts": {
         "webpack": "webpack",
-        "dev": "nodemon --exec babel-node ./server.js"
+        "dev": "nodemon ./server.js"
     },
     "dependencies": {
+        "bcrypt": "^5.0.1",
         "body-parser": "^1.19.0",
         "chalk": "^4.1.0",
         "compression": "^1.7.4",
         "consola": "^2.15.3",
         "cors": "^2.8.5",
         "couchdb": "^0.3.8",
+        "crypto-js": "^4.0.0",
         "dotenv": "^8.2.0",
         "ejs": "^3.1.6",
         "express": "^4.17.1",
+        "express-ejs-layouts": "^2.5.0",
         "jsonwebtoken": "^8.5.1",
         "moment": "^2.29.1",
         "mongoose": "^5.12.2",
         "passport": "^0.4.1",
         "passport-jwt": "^4.0.0",
+        "postcss": "^8.2.9",
+        "postcss-cli": "^8.3.1",
+        "postcss-import": "^14.0.1",
         "pouchdb": "^7.2.2",
         "pouchdb-adapter-leveldb": "^7.2.2",
         "pouchdb-find": "^7.2.2",
@@ -35,7 +41,9 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
+        "autoprefixer": "^10.2.5",
         "morgan": "^1.10.0",
-        "nodemon": "^2.0.7"
+        "nodemon": "^2.0.7",
+        "tailwindcss": "^2.1.1"
     }
 }

@@ -1,11 +1,146 @@
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Syllektis HQ | Create An Account.</title>
-    </head>
-    <body>
-        <h1>Create An Account</h1>
-    </body>
-</html>
+<div class="flex justify-center content-center">
+    <div id="form">
+        <% if (type==='company' ) { %>
+            <form class="flex flex-col shadow-2xl m-5 px-10 py-2 rounded" action="#" id="register-form">
+                <div class="text-blue-600 text-2xl my-2 mb-5 text-bold text-center">Create An Account</div>
+                <input id="name" type="text" placeholder="Name"
+                    class="bg-gray-200 mb-2 px-3 py-2 rounded border-none outline-none text-blue-600" required />
+                <input id="email" type="email" placeholder="Email"
+                    class="bg-gray-200 mb-2 px-3 py-2 rounded border-none outline-none text-blue-600" required />
+                <input id="password" type="password" placeholder="Password"
+                    class="bg-gray-200 mb-6 px-3 py-2 rounded border-none outline-none text-blue-600" required />
+
+                <div class="flex flex-row">
+                    <div class="flex flex-col mr-12">
+                        <a href="/" class="px-3 cursor-pointer text-blue-600">Cancel</a>
+                        <a href="/authentication/register/collector" class="px-3 mb-2 cursor-pointer text-blue-700">Are
+                            you a collector?</a>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <button class="px-3 py-1 cursor-pointer bg-blue-600 ml-auto text-white rounded"
+                            type="submit">Continue</button>
+                    </div>
+                </div>
+            </form>
+            <% } else { %>
+                <form class="flex flex-col shadow-2xl m-5 px-10 py-2 rounded" action="#" id="register-form">
+                    <div class="text-blue-600 text-2xl my-2 mb-5 text-bold text-center">Create An Account</div>
+                    <div class="flex flex-row">
+                        <input id="firstName" type="text" placeholder="First Name"
+                            class="bg-gray-200 mb-2 mr-2 px-3 py-2 rounded border-none outline-none text-blue-600"
+                            required />
+                        <input id="lastName" type="text" placeholder="Last Name"
+                            class="bg-gray-200 mb-2 px-3 py-2 rounded border-none outline-none text-blue-600"
+                            required />
+                    </div>
+                    <input id="phoneNumber" type="tel" placeholder="Phone Number"
+                        class="bg-gray-200 mb-2 px-3 py-2 rounded border-none outline-none text-blue-600" required />
+                    <input id="email" type="email" placeholder="Email"
+                        class="bg-gray-200 mb-2 px-3 py-2 rounded border-none outline-none text-blue-600" required />
+                    <input id="password" type="password" placeholder="Password"
+                        class="bg-gray-200 mb-6 px-3 py-2 rounded border-none outline-none text-blue-600" required />
+
+                    <input id="accountNumber" type="number" placeholder="Account Number"
+                        class="bg-gray-200 mb-2 px-3 py-2 rounded border-none outline-none text-blue-600 appearance-none"
+                        required />
+                    <div class="flex flex-row">
+                        <input id="branchCode" type="number" placeholder="Branch Code"
+                            class="bg-gray-200 mb-6 mr-2 px-3 py-2 rounded border-none outline-none text-blue-600 appearance-none"
+                            required />
+                        <input id="bankName" type="text" placeholder="Bank Name"
+                            class="bg-gray-200 mb-6 px-3 py-2 rounded border-none outline-none text-blue-600 appearance-none"
+                            required />
+                    </div>
+
+                    <input id="streetAddress" type="text" placeholder="Street Address"
+                        class="bg-gray-200 mb-2 px-3 py-2 rounded border-none outline-none text-blue-600 appearance-none"
+                        required />
+                    <div class="flex flex-row">
+                        <input id="city" type="text" placeholder="City"
+                            class="bg-gray-200 mb-2 mr-2 px-3 py-2 rounded border-none outline-none text-blue-600 appearance-none"
+                            required />
+                        <input id="areaCode" type="text" placeholder="Area Code"
+                            class="bg-gray-200 mb-2 px-3 py-2 rounded border-none outline-none text-blue-600 appearance-none"
+                            required />
+                    </div>
+
+                    <div class="flex flex-row">
+                        <input id="province" type="text" placeholder="Province"
+                            class="bg-gray-200 mb-6 mr-2 px-3 py-2 rounded border-none outline-none text-blue-600 appearance-none"
+                            required />
+                        <input id="country" type="text" placeholder="Country"
+                            class="bg-gray-200 mb-6 px-3 py-2 rounded border-none outline-none text-blue-600 appearance-none"
+                            required />
+                    </div>
+
+                    <div class="flex flex-row">
+                        <div class="flex flex-col mr-auto">
+                            <a href="/" class="px-3 cursor-pointer text-blue-600">Cancel</a>
+                            <a href="/authentication/register/company"
+                                class="px-3 mb-2 cursor-pointer text-blue-700">Are
+                                you a company?</a>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <button class="px-3 py-1 cursor-pointer bg-blue-600 ml-auto text-white rounded"
+                                type="submit">Continue</button>
+                        </div>
+                    </div>
+                </form>
+                <% } %>
+    </div>
+    <div id="success" style="display: none">
+        <div class="flex flex-col shadow-2xl m-5 px-10 py-2 rounded">
+            <div class="text-green-600 text-2xl text-bold text-center">Account Created.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let type = '<%= type %>'
+    let registerForm = document.getElementById('register-form')
+    let form = document.getElementById('form')
+    let success = document.getElementById('success')
+
+    registerForm.addEventListener('submit', ($event) => {
+        $event.preventDefault()
+
+        let data = type === 'company' ? {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+
+            type,
+        } : {
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            phoneNumber: document.getElementById("phoneNumber").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+
+            accountNumber: document.getElementById("accountNumber").value,
+            branchCode: document.getElementById("branchCode").value,
+            bankName: document.getElementById("bankName").value,
+
+            streetAddress: document.getElementById("streetAddress").value,
+            city: document.getElementById("city").value,
+            areaCode: document.getElementById("areaCode").value,
+            province: document.getElementById("province").value,
+            country: document.getElementById("country").value,
+
+            type,
+        }
+
+        registerForm.reset()
+
+        form.style.display = 'none'
+        success.style.display = 'block'
+
+        axios.post('/authentication/register', data)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    })
+</script>

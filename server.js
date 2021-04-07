@@ -3,6 +3,7 @@ let dotenv = require('dotenv')
 dotenv.config()
 
 let express = require('express')
+let expressLayouts = require('express-ejs-layouts')
 
 let app = express()
 let http = require('http').createServer(app)
@@ -14,28 +15,28 @@ let { connect } = require('./utils/database')
 let compression = require('compression')
 let path = require('path')
 
-let port = 8080 || process.env.PORT
+let port = process.env.PORT || 8080
 
 let Routes = require('./routes')
 
-;(() => {
-    app.set('views', path.join(__dirname, 'views'))
-    app.set('view engine', 'ejs')
+app.use(express.static('public'))
 
-    app.use(express.static(__dirname + 'public'))
-    app.use(json())
-    app.use(urlencoded({ extended: true }))
-    app.use(passport.initialize())
-    app.use(passport.session())
-    app.use(compression())
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
 
-    passport.use(JwtStrategy)
+app.use(expressLayouts)
+app.use(json())
+app.use(urlencoded({ extended: true }))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(compression())
 
-    app.use('/api', Routes)
+passport.use(JwtStrategy)
 
-    http.listen(port, () => {
-        info('Listening on port ' + port)
+app.use('/', Routes)
 
-        connect()
-    })
-})()
+http.listen(port, () => {
+    info('Listening on port ' + port)
+
+    connect()
+})

@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 let { Schema } = mongoose
 
-let CompanyProductsSchema = new Schema({
+let CompanyProductSchema = new Schema({
     // Company Product Data
     productId: String,
     productDescription: String,
@@ -11,4 +11,4 @@ let CompanyProductsSchema = new Schema({
     companyId: String,
 })
 
-module.exports = CompanyProductsSchema
+module.exports = CompanyProductSchema

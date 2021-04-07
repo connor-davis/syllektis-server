@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 let { Schema } = mongoose
 
-let CompanyPaymentsSchema = new Schema({
+let CompanyPaymentSchema = new Schema({
     // Company Payment Data
     paymentId: String,
     paymentDate: Date,
@@ -12,7 +12,7 @@ let CompanyPaymentsSchema = new Schema({
     companyId: String,
 })
 
-let CollectorPaymentsSchema = new Schema({
+let CollectorPaymentSchema = new Schema({
     // Company Payment Data
     paymentId: String,
     paymentDate: Date,
@@ -21,4 +21,4 @@ let CollectorPaymentsSchema = new Schema({
     collectorId: String,
 })
 
-module.exports = { CompanyPaymentsSchema, CollectorPaymentsSchema }
+module.exports = { CompanyPaymentSchema, CollectorPaymentSchema }

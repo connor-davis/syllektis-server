@@ -1,8 +1,4 @@
 let mongoose = require('mongoose')
-let { CompanyCollectionsSchema } = require('./collection')
-let CompanyCollectorsSchema = require('./collector')
-let { CompanyPaymentsSchema } = require('./payment')
-let CompanyProductsSchema = require('./product')
 let { Schema } = mongoose
 
 let CompanySchema = new Schema({
@@ -13,23 +9,27 @@ let CompanySchema = new Schema({
     companyEmail: String,
     companyPassword: String,
     // Company Payments Data
+    // Where [String] contains Id's
     companyPayments: {
-        type: [CompanyPaymentsSchema],
+        type: [String],
         default: [],
     },
     // Company Collections Data
+    // Where [String] contains Id's
     companyCollections: {
-        type: [CompanyCollectionsSchema],
+        type: [String],
         default: [],
     },
     // Company Collectors Data
+    // Where [String] contains Id's
     companyCollectors: {
-        type: [CompanyCollectorsSchema],
+        type: [String],
         default: [],
     },
     // Company Products Data
+    // Where [String] contains Id's
     companyProducts: {
-        type: [CompanyProductsSchema],
+        type: [String],
         default: [],
     },
 })

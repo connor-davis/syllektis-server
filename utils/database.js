@@ -3,7 +3,7 @@ let { info } = require('./console')
 
 let connect = () =>
     mongoose.connect(
-        'mongodb://localhost/my_database',
+        'mongodb://localhost:27017/syllektis',
         {
             useNewUrlParser: true,
             useUnifiedTopology: true,

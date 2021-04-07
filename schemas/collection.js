@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 let { Schema } = mongoose
 
-let CompanyCollectionsSchema = new Schema({
+let CompanyCollectionSchema = new Schema({
     // Company Collection Data
     collectionId: String,
     collectionDescription: String,
@@ -17,7 +17,7 @@ let CompanyCollectionsSchema = new Schema({
     companyId: String,
 })
 
-let CollectorCollectionsSchema = new Schema({
+let CollectorCollectionSchema = new Schema({
     // Company Collection Data
     collectionId: String,
     collectionDescription: String,
@@ -31,4 +31,4 @@ let CollectorCollectionsSchema = new Schema({
     productValue: Number,
 })
 
-module.exports = { CompanyCollectionsSchema, CollectorCollectionsSchema }
+module.exports = { CompanyCollectionSchema, CollectorCollectionSchema }
